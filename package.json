@@ -1,0 +1,43 @@
+{
+  "name": "webGL",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
+    "build": "./node_modules/webpack/bin/webpack.js --mode=production --display-error-details",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dat.gui": "^0.7.3",
+    "three": "^0.77.1",
+    "three-orbit-controls": "^82.1.0",
+    "webpack": "^4.25.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-stage-0": "^7.0.0",
+    "autoprefixer": "^9.3.1",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
