@@ -11,7 +11,7 @@ const mode = process.env.NODE_ENV || 'development';
 module.exports = {
   entry: {
     index: './src/index.js',
-    lib: ['three', 'dat.gui']
+    lib: ['three', 'three-orbitcontrols']
   },
   output: {
     path: path.resolve('dist'), // 设置输出目录
@@ -22,7 +22,7 @@ module.exports = {
     alias: {
       public: path.resolve(__dirname, './public'),
       assets: path.resolve(__dirname, './public/assets'),
-      libs: path.resolve(__dirname, './public/libs'),
+      models: path.resolve(__dirname, './public/models'),
     }
   },
   module: {
@@ -69,13 +69,15 @@ module.exports = {
     new webpack.ProvidePlugin({
       THREE: 'three',
       'window.THREE': 'three',
-      'dat': 'dat.gui',
-      'window.dat': 'dat.gui',
+      'OrbitControls': 'three-orbitcontrols',
+      // 'OBJLoader': 'three-obj-loader',
+      // 'MTLLoader': 'three-mtl-loader',
     }),
     new UglifyjsWebpackPlugin()
   ],
   devServer: {
-    contentBase: './dist',
+    // contentBase: './public',
+    contentBase: './src',
     host: 'localhost',      // 默认是localhost
     port: 3000,             // 端口
     open: true,             // 自动打开浏览器
@@ -85,13 +87,6 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        vendor: {   // 抽离第三方插件
-          test: /node_modules/,   // 指定是node_modules下的第三方包
-          chunks: 'initial',
-          name: 'vendor',  // 打包后的文件名，任意命名
-          // 设置优先级，防止和自定义的公共代码提取时被覆盖，不进行打包
-          priority: 10
-        },
         lib: {
           chunks: 'initial',
           name: 'lib',
